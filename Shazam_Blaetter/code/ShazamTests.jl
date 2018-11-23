@@ -1,8 +1,8 @@
 module Shazam
 
-import Pkg; 
-Pkg.add("FFTW")
-Pkg. add("WAV")
+#import Pkg; 
+#Pkg.add("FFTW")
+#Pkg. add("WAV")
 
 using Plots
 using FFTW
