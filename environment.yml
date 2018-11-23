@@ -2,5 +2,5 @@ dependencies:
   - matplotlib
   - numpy
   - pip
-    - pip:
-        - julia
+  - pip:
+    - julia
