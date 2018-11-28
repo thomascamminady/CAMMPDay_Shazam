@@ -60,7 +60,7 @@ end
 
 function AB1Aufgabe1a(amplitude,frequenz)
     if amplitude!=1 || frequenz!=200
-		println("Amplitude und/oder Frequenz falsch!")
+		@warn "Amplitude und/oder Frequenz falsch!"
     end
     x = 0:0.0001:0.1;
     y = zeros(1001);
@@ -91,10 +91,10 @@ end
     
 function AB1Aufgabe1b(amplitude,amplitude_leiser,amplitude_lauter)
     if amplitude_leiser >= amplitude 
-		println("Der erste Ton ist nicht leiser als der Ton aus Teil a)!")
+		@warn "Der erste Ton ist nicht leiser als der Ton aus Teil a)!"
     end
     if amplitude_lauter <= amplitude
-		println("Der zweite Ton ist nicht lauter als der Ton aus Teil a)!")
+		@warn "Der zweite Ton ist nicht lauter als der Ton aus Teil a)!"
     end
     x = 0:0.0001:0.1;
     y = zeros(1001,3);
@@ -122,12 +122,12 @@ end
 
 function AB1Aufgabe1c1(A)
     if A(0) != 0
-		println("Die Amplitude hat zur Zeit t = 0 nicht den Wert 0!")
+		@warn "Die Amplitude hat zur Zeit t = 0 nicht den Wert 0!"
     end
     m1 = A(1)-A(0);
     m2 = A(2)-A(1);
     if m1 != m2
-		println("Die Funktion A besitzt kein lineares Wachstum!")
+		@warn "Die Funktion A besitzt kein lineares Wachstum!"
     end
     labels = ["dein Ton"];
     x = 0:0.0001:0.1;
@@ -153,15 +153,15 @@ end
 
 function AB1Aufgabe1c2(A,A2)
     if A2(0) != 0
-		println("Die Amplitude hat bei t = 0 nicht den Wert 0!")
+		@warn "Die Amplitude hat bei t = 0 nicht den Wert 0!"
     end
     m1 = A2(1)-A2(0);
     m2 = A2(2)-A2(1);
     if m1 != m2
-		println("Die Funktion A2 besitzt kein lineares Wachstum!")
+		@warn "Die Funktion A2 besitzt kein lineares Wachstum!"
     end
     if A(0.1) > A2(0.1)
-		println("Die Funktion A2 wächst nicht schneller als die Funktion A!")
+		@warn "Die Funktion A2 wächst nicht schneller als die Funktion A!"
     end
     labels = ["Teil 1" "Teil 2"];
     x = 0:0.0001:0.1;
@@ -188,12 +188,12 @@ end
 
 function AB1Aufgabe1d(A3)
     if A3(1) != 0
-		println("Bei t = 1 hat die Amplitude nicht den Wert 0!")
+		@warn "Bei t = 1 hat die Amplitude nicht den Wert 0!"
     end
     m1 = A3(1)-A3(0);
     m2 = A3(2)-A3(1);
     if abs(m1 - m2) > 0.0000000001
-		println("Die Funktion A3 besitzt kein lineares Abklingverhalten!")
+		@warn "Die Funktion A3 besitzt kein lineares Abklingverhalten!"
     end
     labels = ["dein Ton"]; 
     x = 0:0.0001:1;
@@ -228,16 +228,16 @@ end
 
 function AB1Aufgabe2a(F_hoeher,F_tiefer)
     if F_hoeher >= 6 || F_hoeher <= 0
-		println("F_hoeher liegt nicht zwischen 0 und 6!")
+		@warn "F_hoeher liegt nicht zwischen 0 und 6!"
     end
     if F_tiefer >= 6 || F_tiefer <= 0
-		println("F_tiefer liegt nicht zwischen 0 und 6!")
+		@warn "F_tiefer liegt nicht zwischen 0 und 6!"
     end
     if F_hoeher <= 1 
-		println("Der erste Ton ist nicht höher als der Referenzton!")
+		@warn "Der erste Ton ist nicht höher als der Referenzton!"
     end
     if F_tiefer >= 1
-		println("Der zweite Ton ist nicht tiefer als der Referenzton!")
+		@warn "Der zweite Ton ist nicht tiefer als der Referenzton!"
     end
     x = 0:0.00001:0.01;
     y = zeros(length(x),3);
@@ -265,15 +265,15 @@ end
     
 function AB1Aufgabe2b(F)
     if F(0) != 1
-		println("Zum Zeitpunkt t = 0 hat die Frequenz von g nicht den Wert 200 Hz!")
+		@warn "Zum Zeitpunkt t = 0 hat die Frequenz von g nicht den Wert 200 Hz!"
     end
     if F(0.1) != 2
-		println("Zum Zeitpunkt t = 0.1 hat die Frequenz von g nicht den Wert 400Hz!")
+		@warn "Zum Zeitpunkt t = 0.1 hat die Frequenz von g nicht den Wert 400Hz!"
     end
     m1 = F(1)-F(0);
     m2 = F(2)-F(1);
     if abs(m1-m2) > 0.00000001
-		println("Die Funktion F besitzt kein lineares Wachstum!")
+		@warn "Die Funktion F besitzt kein lineares Wachstum!"
     end
     labels = ["dein Signal"];
     x = 0:0.0001:0.1;
@@ -301,7 +301,7 @@ end
 
 function AB1ZusatzaufgabeA(A4,t_min,a,b)
     if t_min <= a || t_min >= b
-		println(" t_min liegt nicht zwischen a und b!")
+		@warn " t_min liegt nicht zwischen a und b!"
     end
     min = 1;
     for i = -10:10
@@ -310,7 +310,7 @@ function AB1ZusatzaufgabeA(A4,t_min,a,b)
         end
     end
     if min == 0
-		println("Bei t = t_min ist die Amplitude nicht minimal!")
+		@warn "Bei t = t_min ist die Amplitude nicht minimal!"
     end
     labels = ["dein Ton"];
     if t_min > a && t_min < b 
@@ -338,13 +338,13 @@ end
   
 function AB1ZusatzaufgabeB(A5,t_max,a,b)
     if t_max <= a || t_max >= b
-		println("t_max liegt nicht zwischen a und b!")
+		@warn "t_max liegt nicht zwischen a und b!"
     end
     if A5(a) != 0 
-		println("Bei t = a hat die Amplitude nicht den Wert 0!")
+		@warn "Bei t = a hat die Amplitude nicht den Wert 0!"
     end
     if A5(b) != 0
-		println("Bei t = b hat die Amplitude nicht den Wert 0!")
+		@warn "Bei t = b hat die Amplitude nicht den Wert 0!"
     end
     max = 1;
     for i = -10:10
@@ -353,7 +353,7 @@ function AB1ZusatzaufgabeB(A5,t_max,a,b)
         end
     end
     if max == 0
-		println("Bei t = t_max ist die Amplitude nicht maximal!")
+		@warn "Bei t = t_max ist die Amplitude nicht maximal!"
     end
     labels = ["dein Ton"];
     if t_max > a && t_max < b 
@@ -383,7 +383,7 @@ end
 
 function AB1ZusatzaufgabeC(a,b,F)
     if b <= a 
-		println("b muss größer sein als a!")
+		@warn "b muss größer sein als a!"
     end
     increase = 1;
     for i = 1:100
@@ -392,7 +392,7 @@ function AB1ZusatzaufgabeC(a,b,F)
         end
     end
     if increase == 0
-		println("Die Frequenz fällt nicht auf dem Intervall [a,b]!")
+		@warn "Die Frequenz fällt nicht auf dem Intervall [a,b]!"
     end
     labels = ["dein Signal"];
     if a < b
@@ -420,7 +420,7 @@ end
     
 function AB1ZusatzaufgabeD(a,b,F)
     if b <= a
-		println("b muss größer sein als a!")
+		@warn "b muss größer sein als a!"
     end
     labels = ["dein Signal"];
     if a < b
@@ -574,90 +574,90 @@ end
 
 function AB3Aufgabe1(pointFreq_8,T_delta_8,anchorFreq_3,pointFreq_10,anchorFreq_4,pointFreq_11_2,T_delta_11_2,anchorFreq_6,pointFreq_16_2,T_delta_16_2,pointFreq_17_2,T_delta_17_2,pointFreq_18,T_delta_18,pointFreq_19,T_delta_19,pointFreq_20,T_delta_20)
     if pointFreq_8 != 40
-		println("Frequenz von Datenpunkt 8 ist falsch!")
+		@warn "Frequenz von Datenpunkt 8 ist falsch!"
     end
     if T_delta_8 != 4
-		println("Abstand von Datenpunkt 8 zum Anchor Point 2 stimmt nicht!")
+		@warn "Abstand von Datenpunkt 8 zum Anchor Point 2 stimmt nicht!"
     end
     if anchorFreq_3 != 10
-		println("Frequenz von Anchor Point 3 stimmt nicht!")
+		@warn "Frequenz von Anchor Point 3 stimmt nicht!"
     end
     if pointFreq_10 != 50
-		println("Frequenz von Datenpunkt 10 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 10 stimmt nicht!"
     end 
     if anchorFreq_4 != 50
-		println("Frequenz von Anchor Point 4 stimmt nicht!")
+		@warn "Frequenz von Anchor Point 4 stimmt nicht!"
     end
     if pointFreq_11_2 != 10
-		println("Frequenz von Datenpunkt 11 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 11 stimmt nicht!"
     end
     if T_delta_11_2 != 1
-		println("Abstand von Datenpunkt 11 zu Anchor Point 4 stimmt nicht!")
+		@warn "Abstand von Datenpunkt 11 zu Anchor Point 4 stimmt nicht!"
     end
     if anchorFreq_6 != 30
-		println("Frequenz von Anchor Point 6 stimmt nicht!")
+		@warn "Frequenz von Anchor Point 6 stimmt nicht!"
     end
     if pointFreq_16_2 != 30
-		println("Frequenz von Datenpunkt 16 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 16 stimmt nicht!"
     end
     if T_delta_16_2 != 0
-		println("Abstand von Datenpunkt 16 zum Anchor Point 6 stimmt nicht!")
+		@warn "Abstand von Datenpunkt 16 zum Anchor Point 6 stimmt nicht!"
     end
     if pointFreq_17_2 != 20
-		println("Frequenz von Datenpunkt 17 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 17 stimmt nicht!"
     end
     if T_delta_17_2 != 1
-		println("Abstand von Datenpunkt 17 zu Anchor Point 6 stimmt nicht!")
+		@warn "Abstand von Datenpunkt 17 zu Anchor Point 6 stimmt nicht!"
     end
     if pointFreq_18 != 40 
-		println("Frequenz von Datenpunkt 18 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 18 stimmt nicht!"
     end
     if T_delta_18 != 2
-		println("Abstand zwischen Datenpunkt 18 und Anchor Point 6 stimmt nicht!")
+		@warn "Abstand zwischen Datenpunkt 18 und Anchor Point 6 stimmt nicht!"
     end
     if pointFreq_19 != 10 
-		println("Frequenz von Datenpunkt 19 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 19 stimmt nicht!"
     end
     if T_delta_19 != 3
-		println("Abstand zwischen Datenpunkt 19 und Anchor Point 6 stimmt nicht!")
+		@warn "Abstand zwischen Datenpunkt 19 und Anchor Point 6 stimmt nicht!"
     end
     if pointFreq_20 != 30
-		println("Frequenz von Datenpunkt 20 stimmt nicht!")
+		@warn "Frequenz von Datenpunkt 20 stimmt nicht!"
     end
     if T_delta_20 != 4
-		println("Abstand von Datenpunkt 20 zu Anchor Point 6 stimmt nicht!")
+		@warn "Abstand von Datenpunkt 20 zu Anchor Point 6 stimmt nicht!"
     end
 end
 
 function AB4Aufgabe1a(Spalte3,Spalte4)
     Spalte2 = [22; 22; 22; 49; 49; 34; 34; 34; 85; 49; 58; 58; 58; 58; 58; 19; 19; 19; 67; 67; 82; 82; 52; 70; 70; 25; 25; 25; 40; 40];
     if Spalte3 != [1; 1; 1; 1; 1; 4; 4; 4; 4; 4; 7; 7; 7; 7; 7; 10; 10; 10; 10; 10; 13; 13; 13; 13; 13; 16; 16; 16; 16; 16]
-		println("Spalte3 ist falsch!")
+		@warn "Spalte3 ist falsch!"
     end
     Spalte4_temp = Spalte2 - Spalte3;
     if Spalte4 !=  Spalte4_temp
-		println("Spalte4 ist falsch!")
+		@warn "Spalte4 ist falsch!"
     end
     print("Spalte4 = ", Spalte4)
 end
 
 function AB4Aufgabe1b(Spalte2,Spalte3,Spalte4)
     if Spalte2 != [52; 52; 52; 52; 52; 55; 55; 55; 55; 55; 58; 58; 58; 58; 58; 61; 61; 61; 61; 61; 64; 64; 64; 64; 64; 67; 67; 67; 67; 67];
-		println("Spalte2 ist falsch!")
+		@warn "Spalte2 ist falsch!"
     end
     if Spalte3 != [1; 1; 1; 1; 1; 4; 4; 4; 4; 4; 7; 7; 7; 7; 7; 10; 10; 10; 10; 10; 13; 13; 13; 13; 13; 16; 16; 16; 16; 16]
-		println("Spalte3 ist falsch!")
+		@warn "Spalte3 ist falsch!"
     end
     Spalte4_temp = Spalte2 - Spalte3;
     if Spalte4 !=  Spalte4_temp
-		println("Spalte4 ist falsch!")
+		@warn "Spalte4 ist falsch!"
     end
     print("Spalte4 = ", Spalte4)
 end
 
 function AB4Aufgabe1c(N)
     if N != 2
-		println("Falsch!")
+		@warn "Falsch!"
     end
     if N == 2
         print("Richtig, Song02 ist der gesuchte Song!")
