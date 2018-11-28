@@ -1,3 +1,2 @@
 libpulse-dev
 gstreamer1.0-pulseaudio 
-libsdl1.2debian-pulseaudio
