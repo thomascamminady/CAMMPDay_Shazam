@@ -1,3 +1,9 @@
 libpulse0
 libpulse-dev
 pulseaudio
+alsa-base
+alsa-utils
+alsa-oss
+gstreamer0.10-alsa
+libasound2
+libasound2-plugins
