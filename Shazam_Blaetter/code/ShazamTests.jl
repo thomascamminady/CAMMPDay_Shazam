@@ -1,5 +1,5 @@
 module Shazam
-
+include("AudioDisplay.jl")
 #import Pkg; 
 #Pkg.add("FFTW")
 #Pkg. add("WAV")
@@ -53,8 +53,9 @@ function AB1A1aPlay()
     end
     #display(y)  
     wavwrite(y, "SinustonAB1A1a.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A1a.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A1a.wav");
+	#wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A1a.wav")
     plot(y)
 end
 
@@ -85,8 +86,10 @@ function AB1A1bPlay(amplitude_leiser,amplitude_lauter)
     ton = [y; z];
     #display(ton)
     wavwrite(ton, "SinustonAB1A1b.wav", Fs=44100);
-    ton, fs = wavread("SinustonAB1A1b.wav");
-    wavplay(ton, fs)
+    #ton, fs = wavread("SinustonAB1A1b.wav");
+    #wavplay(ton, fs)
+	inline_audioplayer("SinustonAB1A1b.wav")
+	
 end
     
 function AB1Aufgabe1b(amplitude,amplitude_leiser,amplitude_lauter)
@@ -116,8 +119,9 @@ function AB1A1c1Play(A)
     end 
     #display(ton)
     wavwrite(y, "SinustonAB1A1c1.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A1c1.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A1c1.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A1c1.wav")
 end
 
 function AB1Aufgabe1c1(A)
@@ -147,8 +151,9 @@ function AB1A1c2Play(A)
     end 
     #display(ton)
     wavwrite(y, "SinustonAB1A1c2.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A1c2.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A1c2.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A1c2.wav")
 end
 
 function AB1Aufgabe1c2(A,A2)
@@ -182,8 +187,9 @@ function AB1A1dPlay(A)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1A1d.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A1d.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A1d.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A1d.wav")
 end
 
 function AB1Aufgabe1d(A3)
@@ -222,8 +228,9 @@ function AB1A2aPlay(F_hoeher,F_tiefer)
     ton = [y; z; w];
     #display(ton)
     wavwrite(ton, "SinustonAB1A2a.wav", Fs=44100);
-    ton, fs = wavread("SinustonAB1A2a.wav");
-    wavplay(ton, fs)
+    #ton, fs = wavread("SinustonAB1A2a.wav");
+    #wavplay(ton, fs)
+	inline_audioplayer("SinustonAB1A2a.wav")
 end
 
 function AB1Aufgabe2a(F_hoeher,F_tiefer)
@@ -259,8 +266,9 @@ function AB1A2bPlay(F)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1A2b.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A2b.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A2b.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A2b.wav")
 end
     
 function AB1Aufgabe2b(F)
@@ -295,8 +303,9 @@ function AB1ZAPlay(A,a,b)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1A2b.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1A2b.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1A2b.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1A2b.wav")
 end
 
 function AB1ZusatzaufgabeA(A4,t_min,a,b)
@@ -332,8 +341,9 @@ function AB1ZBPlay(A,a,b)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1ZB.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1ZB.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1ZB.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1ZB.wav")
 end
   
 function AB1ZusatzaufgabeB(A5,t_max,a,b)
@@ -376,8 +386,9 @@ function AB1ZCPlay(a,F)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1ZC.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1ZC.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1ZC.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1ZC.wav")
 end
     
 
@@ -414,8 +425,9 @@ function AB1ZDPlay(a,b,F)
     end 
     #display(y)
     wavwrite(y, "SinustonAB1ZD.wav", Fs=44100);
-    y, fs = wavread("SinustonAB1ZD.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB1ZD.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB1ZD.wav")
 end
     
 function AB1ZusatzaufgabeD(a,b,F)
@@ -442,8 +454,9 @@ function AB2A1Play(g)
     end 
     #display(y)
     wavwrite(y, "SinustonAB2A1.wav", Fs=44100);
-    y, fs = wavread("SinustonAB2A1.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB2A1.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB2A1.wav")
 end
     
 function AB2Aufgabe1(g)
@@ -521,8 +534,9 @@ function AB2A31Play(y1,y2,y3)
     ton = [y; z; w];
     #display(ton)
     wavwrite(ton, "SinustonAB2A31.wav", Fs=44100);
-    ton, fs = wavread("SinustonAB2A31.wav");
-    wavplay(ton, fs)
+    #ton, fs = wavread("SinustonAB2A31.wav");
+    #wavplay(ton, fs)
+	inline_audioplayer("SinustonAB2A31.wav")
 end
     
 function AB2Aufgabe31(y1,y2,y3)
@@ -546,8 +560,9 @@ function AB2A32Play(S)
     end 
     #display(y)
     wavwrite(y, "SinustonAB2A32.wav", Fs=44100);
-    y, fs = wavread("SinustonAB2A32.wav");
-    wavplay(y, fs)
+    #y, fs = wavread("SinustonAB2A32.wav");
+    #wavplay(y, fs)
+	inline_audioplayer("SinustonAB2A32.wav")
 end
     
 function AB2Aufgabe32(S)
