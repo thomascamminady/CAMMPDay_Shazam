@@ -4,6 +4,6 @@ pulseaudio
 alsa-base
 alsa-utils
 alsa-oss
-gstreamer0.10-alsa
+gstreamer1.0-pulseaudio
 libasound2
 libasound2-plugins
