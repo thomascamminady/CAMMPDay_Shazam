@@ -72,18 +72,22 @@ function AB1Aufgabe1a(amplitude,frequenz)
     plot(x,y, label = labels)
 end
 
-function AB1A1bPlay(amplitude_leiser,amplitude_lauter)
+function AB1A1bPlay(amplitude_leiser, amplitude_lauter)
     eps = 1/44100 
     x = range(0.0,stop=2,step=eps);
+    w = zeros(Float64,length(x));
+    for i = 1:length(w)
+        w[i] = sin(2*pi*200*x[i]);
+    end 
     y = zeros(Float64,length(x));
     for i = 1:length(y)
         y[i] = amplitude_leiser*sin(2*pi*200*x[i]);
-    end 
+    end
     z = zeros(Float64,length(x));
-    for i = 1:length(y)
+    for i = 1:length(z)
         z[i] = amplitude_lauter*sin(2*pi*200*x[i]);
-    end 
-    ton = [y; z];
+    end
+    ton  = [w; y; z];
     #display(ton)
     wavwrite(ton, "SinustonAB1A1b.wav", Fs=44100);
     #ton, fs = wavread("SinustonAB1A1b.wav");
@@ -142,15 +146,21 @@ function AB1Aufgabe1c1(A)
     plot(x,y, label = labels)
 end
 
-function AB1A1c2Play(A)
+function AB1A1c2Play(A, A2)
     eps = 1/44100 
     x = range(0.0,stop=2,step=eps);
     y = zeros(Float64,length(x));
     for i = 1:length(y)
         y[i] = A(x[i])*sin(2*pi*200*x[i]);
     end 
+    z = zeros(Float64,length(x));
+    for i = 1:length(z)
+        z[i] = A2(x[i])*sin(2*pi*200*x[i]);
+    end 
+    w = zeros(44100,1);
+    ton = [y;w;z];
     #display(ton)
-    wavwrite(y, "SinustonAB1A1c2.wav", Fs=44100);
+    wavwrite(ton, "SinustonAB1A1c2.wav", Fs=44100);
     #y, fs = wavread("SinustonAB1A1c2.wav");
     #wavplay(y, fs)
 	inline_audioplayer("SinustonAB1A1c2.wav")
@@ -294,8 +304,8 @@ end
 
 function AB1ZAPlay(A,a,b)
     eps = 1/44100 
-    a_ton = a - 0.5;
-    b_ton = b + 0.5;
+    a_ton = a - 1;
+    b_ton = b + 1;
     x = range(a_ton,stop=b_ton,step=eps);
     y = zeros(Float64,length(x));
     for i = 1:length(y)
