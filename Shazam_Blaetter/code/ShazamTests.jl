@@ -528,7 +528,7 @@ end
 
 function AB2A31Play(y1,y2,y3)
     eps = 1/44100 
-    x = range(0.0,stop=1,step=eps);
+    x = range(0.0,stop=2,step=eps);
     y = zeros(Float64,length(x));
     for i = 1:length(y)
         y[i] = y1(x[i]);
